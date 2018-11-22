@@ -1,0 +1,51 @@
+// THIS File is include list of bootstrap modules
+
+
+// Reset and dependencies
+@import "../../wwwroot/lib/bootstrap/scss/normalize.scss";
+@import "../../wwwroot/lib/bootstrap/scss/print.scss";
+@import "../../wwwroot/lib/bootstrap/scss/glyphicons.scss";
+
+// Core CSS
+@import "../../wwwroot/lib/bootstrap/scss/scaffolding.scss";
+@import "../../wwwroot/lib/bootstrap/scss/type.scss";
+@import "../../wwwroot/lib/bootstrap/scss/code.scss";
+@import "../../wwwroot/lib/bootstrap/scss/grid.scss";
+@import "../../wwwroot/lib/bootstrap/scss/tables.scss";
+@import "../../wwwroot/lib/bootstrap/scss/forms.scss";
+@import "../../wwwroot/lib/bootstrap/scss/buttons.scss";
+
+// Components
+@import "../../wwwroot/lib/bootstrap/scss/component-animations.scss";
+@import "../../wwwroot/lib/bootstrap/scss/dropdowns.scss";
+@import "../../wwwroot/lib/bootstrap/scss/button-groups.scss";
+@import "../../wwwroot/lib/bootstrap/scss/input-groups.scss";
+@import "../../wwwroot/lib/bootstrap/scss/navs.scss";
+@import "../../wwwroot/lib/bootstrap/scss/navbar.scss";
+@import "../../wwwroot/lib/bootstrap/scss/breadcrumbs.scss";
+@import "../../wwwroot/lib/bootstrap/scss/pagination.scss";
+@import "../../wwwroot/lib/bootstrap/scss/pager.scss";
+@import "../../wwwroot/lib/bootstrap/scss/labels.scss";
+@import "../../wwwroot/lib/bootstrap/scss/badges.scss";
+@import "../../wwwroot/lib/bootstrap/scss/jumbotron.scss";
+@import "../../wwwroot/lib/bootstrap/scss/thumbnails.scss";
+@import "../../wwwroot/lib/bootstrap/scss/alerts.scss";
+@import "../../wwwroot/lib/bootstrap/scss/progress-bars.scss";
+@import "../../wwwroot/lib/bootstrap/scss/media.scss";
+@import "../../wwwroot/lib/bootstrap/scss/list-group.scss";
+@import "../../wwwroot/lib/bootstrap/scss/panels.scss";
+@import "../../wwwroot/lib/bootstrap/scss/responsive-embed.scss";
+@import "../../wwwroot/lib/bootstrap/scss/wells.scss";
+@import "../../wwwroot/lib/bootstrap/scss/close.scss";
+
+// Components w/ JavaScript
+@import "../../wwwroot/lib/bootstrap/scss/modals.scss";
+//@import "../../wwwroot/lib/bootstrap/scss/tooltip.scss"; //this is not required
+@import "../../wwwroot/lib/bootstrap/scss/popovers.scss";
+@import "../../wwwroot/lib/bootstrap/scss/carousel.scss";
+
+// Utility classes
+@import "../../wwwroot/lib/bootstrap/scss/utilities.scss";
+@import "../../wwwroot/lib/bootstrap/scss/responsive-utilities.scss";
+
+

@@ -1,0 +1,308 @@
+*:hover >.scrollable,
+*:focus > .scrollable,
+.scrollable:hover,
+.scrollable:focus {
+    &::-webkit-scrollbar {
+        opacity:1;
+        display:block;
+    }
+}
+
+//== quantumui scrollbar
+
+.scrollable {
+    max-height:100%;
+    z-index:1;
+    &.no-webkit,
+    &.no-webkit .scrollable-inner  {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+    .scrollable-inner {
+        width:100%;
+        height:100%;
+        padding:0;
+        margin:0;
+    }
+    > * > .scrollbar,
+     > .scrollbar {
+        position:absolute;
+        z-index:$scrollbar-z-index;
+    }
+    &:not(.bar-visible) .scrollbar {
+        visibility:hidden;
+    }
+    &:hover .scrollbar,
+    &:active .scrollbar,
+    &:focus .scrollbar {
+        visibility:visible;
+        /*display:block;*/
+    }
+    li.scrollbar-list-item {
+        position:none !important;
+        position:initial !important;
+    }
+    &.scrollable-y{
+        overflow-y:auto !important;
+    }
+    &.bar-visible .scrollbar {
+        visibility:visible !important;
+    }
+}
+
+
+.scrollbar,
+.scrollbar-track,
+.scrollbar-thumb {
+    &:hover,
+    &:focus {
+      -webkit-animation-delay:0;
+      animation-delay:0;
+      transition-delay:0;
+      -webkit-transition-delay:0;
+
+    }
+
+}
+.vertical-bar {
+    &.bar-right,
+    &.bar-left{
+        min-width:$scrollbar-size;
+    }
+    &.bar-right{
+        right:$scrollbar-offset;
+    }
+    &.bar-left{
+        left:$scrollbar-offset;
+    }
+}
+
+.horizontal-bar{
+    &.bar-top,
+    &.bar-bottom{
+        min-height:$scrollbar-size;
+    }
+    &.bar-top{
+        top:$scrollbar-offset;
+    }
+    &.bar-bottom{
+        bottom:$scrollbar-offset;
+    }
+}
+
+.scrollbar {
+    .scrollbar-track{
+       position:relative;  
+    }
+    .scrollbar-thumb{
+        position:absolute;
+        cursor:default;
+        opacity:$scrollbar-thumb-opacity;
+        background-color:$scrollbar-thumb-bg-color;
+        width:100%; 
+        border-radius:$scrollbar-track-border-radius;
+        @include box-shadow($scrollbar-thumb-box-shadow); 
+
+        &:hover,
+        &:focus {
+            opacity:1;
+            @include box-shadow($scrollbar-thumb-box-shadow-hover); 
+        }
+    }
+    &.horizontal-bar .scrollbar-thumb{
+       min-width:ceil(($scrollbar-size - 2px));
+       height:100%;
+    }
+    &.horizontal-bar{
+       display:table;
+    }
+    &.horizontal-bar .scrollbar-track{
+       display:table-cell;
+       vertical-align:middle;
+       padding-left:3px;
+       padding-right:3px;
+    }
+    &.vertical-bar .scrollbar-thumb{
+       min-height:ceil(($scrollbar-size - 2px));
+       width:100%;
+    }
+    &.vertical-bar .scrollbar-track{
+       width:100%;
+       margin:auto;
+    }
+}
+.scrollbar-track{
+   > .track-inner{
+       position:relative;  
+       background-color:$scrollbar-bg-color; 
+       @include box-shadow($scrollbar-track-box-shadow);
+       border-radius:$scrollbar-track-border-radius;
+       width:100%;
+       height:100%;
+       
+    }
+}
+
+.bar-increment,
+.bar-decrement {
+    cursor:pointer;
+    text-align:center;
+    position:relative;
+    background-color:$scrollbar-button-bg-color;
+    border-radius:ceil(($scrollbar-button-size / 2));
+    min-width:$scrollbar-button-size;
+    min-height:$scrollbar-button-size;
+    @include gradient_elipse($inner-color: rgba(0, 0, 0, 0.05), $outer-color:rgba(255, 255, 255, 0.3));
+    @include box-shadow($scrollbar-button-box-shadow);
+
+    > span {
+        width:0;
+        height:0;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        border-width:$scrollbar-button-border-width;
+        border-style:solid;
+        border-color:$scrollbar-button-border-color;
+    }
+}
+
+
+.show-bar-button {
+    .horizontal-bar .scrollbar-track{
+       padding-left:3px;
+       padding-right:3px;
+    }
+    .vertical-bar .scrollbar-track{
+       padding-top:3px;
+       padding-bottom:3px;
+    }
+}
+.horizontal-bar{
+    .scrollbar-track > .track-inner{
+       width:100%; 
+    }
+    .bar-decrement,
+    .bar-increment {
+        display:table-cell;
+        vertical-align:middle;
+    }
+    .bar-decrement > span {
+        border-top-color:transparent;
+	    border-bottom-color: transparent;
+	    border-left:none;
+        border-right-width:7px;
+    }
+    .bar-increment  > span{
+        border-top-color:transparent;
+	    border-bottom-color: transparent;
+        border-left-width:7px;
+	    border-right:none;
+    }
+} 
+
+.vertical-bar {
+    .scrollbar-track > .track-inner{
+       width:100%; 
+       margin:auto;
+       height:100%
+    }
+    .bar-decrement,
+    .bar-increment  {
+        display:block;
+        width:100%;
+        > span
+         {
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-5px;
+            margin-left:-4px;
+        }
+    }
+    .bar-decrement > span {
+        border-left-color:transparent;
+	    border-right-color: transparent;
+        border-bottom-width:7px;
+	    border-top:none;
+    }
+    .bar-increment  > span{
+        border-left-color:transparent;
+	    border-right-color: transparent;
+	    border-bottom:none;
+        border-top-width:7px;
+        margin-top:-3px;
+    }
+    
+}
+.hide-rail {
+   .scrollbar-track > .track-inner{
+       background-color:transparent !important;
+       border:none !important;
+       -webkit-box-shadow:none !important;
+       box-shadow:none !important;
+    }
+}
+
+/*size settings*/
+select::-webkit-scrollbar,
+textarea::-webkit-scrollbar,
+iframe::-webkit-scrollbar {
+    width: 8px;
+    height:8px; 
+    border-radius:4px;
+}
+.bar-slimmest {
+    .track-inner,
+    .scrollbar-thumb{
+        border-radius:2px !important;
+    }
+}
+.bar-slim {
+    .track-inner,
+    .scrollbar-thumb{
+        border-radius:4px !important;
+    }
+}
+.bar-normal {
+    .track-inner,
+    .scrollbar-thumb{
+        border-radius:6px;
+    }
+}
+.bar-thick {
+    .track-inner,
+    .scrollbar-thumb{
+        border-radius:8px !important;
+    }
+}
+.bar-thickest {
+    .track-inner,
+    .scrollbar-thumb{
+        border-radius:10px !important;
+    }
+}
+
+.bar-info {
+   @include scrollbar-variant($scrollbar-info-bg, $scrollbar-info-color,$scrollbar-info-thumb-bg,);                                                                                                 
+}
+.bar-danger {
+   @include scrollbar-variant($scrollbar-danger-bg, $scrollbar-danger-color,$scrollbar-danger-thumb-bg,);                                                                                                 
+}
+.bar-warning {
+   @include scrollbar-variant($scrollbar-warning-bg, $scrollbar-warning-color,$scrollbar-warning-thumb-bg,);                                                                                                 
+}
+.bar-success {
+   @include scrollbar-variant($scrollbar-success-bg, $scrollbar-success-color,$scrollbar-success-thumb-bg,);                                                                                                 
+}
+
+@media (max-width: $screen-xs-max) {
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-button{
+        width: 0 !important;
+        height: 0 !important;
+    }
+}

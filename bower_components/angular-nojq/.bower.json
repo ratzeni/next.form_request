@@ -1,0 +1,43 @@
+{
+  "name": "angular-nojq",
+  "authors": [
+    "mehmetotkun <info@quantumui.org>"
+  ],
+  "description": "Angular-NoJq is light weight native angular selector and dimension engine which includes some useful Jquery method for angular.element.",
+  "main": [
+    "angular-nojq.js"
+  ],
+  "keywords": [
+    "angular",
+    "selector",
+    "engine",
+    "nojq",
+    "no-jquery",
+    "dimension",
+    "jqlite",
+    "web"
+  ],
+  "license": "Apache 2",
+  "homepage": "http://quantumui.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "wwwroot",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": ">=1.4.0"
+  },
+  "_release": "d50824d64c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d50824d64c85cb18376a65b1b8d57bc268025a17"
+  },
+  "_source": "https://github.com/quantumui/angular-nojq.git",
+  "_target": "*",
+  "_originalSource": "angular-nojq",
+  "_direct": true
+}

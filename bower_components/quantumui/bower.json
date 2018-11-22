@@ -1,0 +1,42 @@
+{
+  "name": "quantumui",
+  "version": "1.2.0",
+  "authors": [
+    "mehmetotkun <info@quantumui.org>"
+  ],
+  "description": "The most powerful UI library based on ANGULARJS and Bootstrap CSS",
+  "main": [
+    "less/quantumui.less",
+    "dist/css/quantumui.css",
+    "dist/js/quantumui.js"
+  ],
+  "keywords": [
+    "angularui",
+    "quantumui",
+    "select",
+    "datepicker",
+    "modal",
+    "dropdown",
+    "tooltip",
+    "tab",
+    "angularjs",
+    "nojq"
+  ],
+  "license": "MIT",
+  "homepage": "http://quantumui.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "wwwroot",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": ">=2.9.0",
+    "angular": ">=1.4.0",
+    "angular-animate": ">=1.4.0",
+    "angular-sanitize": ">=1.4.0",
+    "bootstrap": ">=3.3.2"
+  }
+}

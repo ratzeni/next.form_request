@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/quantumui/dist/css/addon/effect-light.min.css">
+    <link rel="stylesheet" href="bower_components/quantumui/dist/css/quantumui.min.css">
+    <link rel="stylesheet" href="bower_components/quantumui/dist/css/bootstrap-quantumui.min.css">
+
+    <script src="./bower_components/moment/min/moment.min.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+
+    <script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./bower_components/quantumui/dist/js/quantumui-all.min.js"></script>
+    <script src="./bower_components/quantumui/config/icons.js"></script>
+
+    <script src="./app/app.module.js"></script>
+
+</head>
+
+<body ng-app="myApp" data-ng-controller="MainCtrl as main">
+    <div id="main" class="container bg-700">
+        <ng-include src="'app/request_form.view.html'"></ng-include>
+    </div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+
+<div class="panel panel-default" style="margin-top:10px;">
+        <div class="panel-body">
+            <div class="col-sm-12 controls">
+                <div class="btn-group  btn-group-reset" ng-model="buttons.radio.what"
+                     ng-init="buttons.radio.what = 'all'" data-nq-radio-group="">
+                    <label title="Left Button" class="btn btn-secondary"><input type="radio" value="all"
+                                                                              data-ng-click="">Sequencing & Library
+                        prep</label>
+                    <label title="Right Button" class="btn btn-secondary"><input type="radio" value="sequencing"
+                                                                               data-ng-click="">Sequencing
+                        Only</label>
+                </div>
+            </div>
+            <div class="col-sm-12 controls" style="margin-top:20px;" ng-show="buttons.radio.what == 'sequencing'">
+                <div class="col-sm-4 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="sequencer">Illumina Sequencer</label>
+                            <select data-nq-select="" data-ng-required="true" id="sequencer"
+                                    class="form-control"
+                                    data-qo-placeholder="Illumina Sequencer"
+                                    data-ng-model="request_params.sequencer"
+                                    ng-options="s.title for s in sequencers" required>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-2 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="n_samples">N. Lanes</label>
+                            <input  id="n_lanes"
+                                    class="form-control"
+                                    placeholder="N. Lanes"
+                                    data-ng-model="request_params.n_lanes"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-3 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="single_paired">Paired-End or Single-End</label>
+                            <input id="single_paired"
+                                   type="checkbox"
+                                   data-label-text="Reads"
+                                   data-true-label="PE" data-false-label="SE"
+                                   data-ng-model="request_params.single_paired"
+                                   data-nq-switch-button=""
+                                   data-theme="secondary"
+                                   checked="checked">
+                            </input>
+
+                        </div>
+                    </form>
+                </div>
+                 <div class="col-sm-3 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="reads_length">Reads lenght</label>
+                            <select data-nq-select="" data-ng-required="true" id="reads_length"
+                                    class="form-control"
+                                    data-qo-placeholder="Reads Length"
+                                    data-ng-model="request_params.reads_length"
+                                    ng-options="s.title for s in lengths" required>
+                            </select>
+
+                            <div style="margin-top:10px;" ng-if="request_params.reads_length.id === '0'">
+                                <input  id="custom_reads_length"
+                                    class="form-control"
+                                    placeholder="Reads length"
+                                    data-ng-model="request_params.custom_reads_length"
+                                    required>
+                                </input>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-sm-12 controls" style="margin-top:20px;" ng-show="buttons.radio.what == 'all'">
+                <div class="col-sm-4 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="library_prep">Library Prep</label>
+                            <select data-nq-select="" data-ng-required="true" id="library_prep"
+                                    class="form-control"
+                                    data-qo-placeholder="Library Prep"
+                                    data-ng-model="request_params.project_type"
+                                    ng-options="p.title for p in project_types" required>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-2 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="n_samples">N. Samples</label>
+                            <input  id="n_samples"
+                                    class="form-control"
+                                    placeholder="N. Samples"
+                                    data-ng-model="request_params.n_samples"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-3 controls" ng-show="request_params.project_type.id === 'DNA' || request_params.project_type.id === 'EXOME' || request_params.project_type.id == 'GENE'">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="target_regions">Target Regions (bp)</label>
+                            <input  id="target_regions"
+                                    class="form-control"
+                                    placeholder="Target Regions (bp)
+                                    data-ng-model="request_params.target_regions"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+                 <div class="col-sm-3 controls" ng-show="request_params.project_type.id === 'DNA' || request_params.project_type.id === 'EXOME' || request_params.project_type.id == 'GENE'">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="average_coverage">Average Coverage</label>
+                            <input  id="average_coverage"
+                                    class="form-control"
+                                    placeholder="Average Coverage"
+                                    data-ng-model="request_params.average_coverage"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-4 controls" ng-show="request_params.project_type.id !== 'DNA' && request_params.project_type.id !== 'EXOME' && request_params.project_type.id !== 'GENE'">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="min_num_reads">Minimum number of reads per sample</label>
+                            <input  id="min_num_reads"
+                                    class="form-control"
+                                    placeholder=">Minimum number of reads per sample"
+                                    data-ng-model="request_params.min_num_reads"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-12 controls" style="margin-top:0px;">
+                <div class="col-sm-4 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="analysis">DATA Analysis</label>
+                            <input id="analysis"
+                                   type="checkbox"
+                                   data-label-text="Include"
+                                   data-true-label="YES" data-false-label="NO"
+                                   data-ng-model="request_params.analysis"
+                                   data-nq-switch-button=""
+                                   data-theme="secondary">
+                            </input>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-sm-12 controls" style="margin-top:0px;" ng-show="request_params.analysis===true">
+                <div class="col-sm-12 controls">
+                    <form>
+                        <div class="form-group">
+
+                            <textarea
+                                      class="form-control"
+                                      rows="15"
+                                      ng-model="request_params.str_analysis"
+                                      disabled readonly
+                                      style="background-color:white;"
+                                      required>
+                            </textarea>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-12 controls">
+                <div class="col-sm-4 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="first_name">First Name</label>
+                            <input  id="first_name"
+                                    class="form-control"
+                                    placeholder="Enter your name here"
+                                    data-ng-model="request_params.first_name"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-4 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="last_name">Last Name</label>
+                            <input  id="last_name"
+                                    class="form-control"
+                                    placeholder="Enter your surname here"
+                                    data-ng-model="request_params.last_name"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-4 controls">
+                    <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="email">Email Address</label>
+                            <input  id="email"
+                                    class="form-control"
+                                    placeholder="Enter your email here"
+                                    data-ng-model="request_params.email"
+                                    required>
+                            </input>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-sm-12 controls">
+
+                <div class="col-sm-12 controls">
+                     <form>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="your_request">Your Request</label>
+                            <textarea id="your_request"
+                                      class="form-control"
+                                      rows="{{ request_params.analysis===true ? '20' : '10' }}"
+                                      ng-model="request_params.your_request"
+                                      placeholder="Tell us about your project"
+                                      style="background-color:#EFEFEF;"
+                                      required>
+                            </textarea>
+                        </div>
+                     </form>
+                </div>
+            </div>
+            <div class="col-sm-12 controls" >
+                <div class="col-sm-12 controls">
+                     <button type="button"
+                             data-ng-disabled="request_params.email === null || request_params.first_name === null || request_params.last_name === null"
+                             class="btn btn-success pull-right">
+                         <span class="glyphicon glyphicon-share"></span>&nbsp; Submit Request
+                     </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
