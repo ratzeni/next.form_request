@@ -1,0 +1,17 @@
+{
+  "server": {
+    "url": "127.0.0.1",
+    "port": "8080"
+  },
+  "site": {
+    "home": "index.html"
+  },
+  "mail": {
+    "service": "serverimap.mail.it",
+    "host": "smtp.mail.it",
+    "user": "username",
+    "password": "*********",
+    "email": "username@mail.it",
+    "destination": "destination@crm.it"
+  }
+}

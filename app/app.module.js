@@ -4,10 +4,22 @@ var app = angular.module('myApp', [
         'ngQuantum',
         ]);
 
+app.service('MailService', function ($http, $location) {
+    this.send_mail = function(params) {
+            this.req = {
+			    method: 'GET',
+			    url: $location.absUrl() + "send",
+
+			    params: params
+		     };
+
+		    return $http(this.req)
+    }
+});
 
 // :: MAIN CONTROLLER
 app.controller('MainCtrl',
-	function($scope){
+	function(MailService, $scope, $http) {
 
 	    $scope.buttons = { radio: {what: null}};
 
@@ -325,4 +337,23 @@ app.controller('MainCtrl',
 
         $scope.request_params = $scope.init_request();
 
+
+
+        this.send_mail = function(request_params){
+            this.params = {
+                subject: "NGSLAB Request from " + request_params.first_name + ' ' + request_params.last_name + ' (' +  request_params.email + ")",
+                text: request_params.your_request,
+                replyTo: request_params.email,
+            }
+
+            MailService.send_mail(this.params).then(function (data, status, header, config){
+                console.log("data: ");
+                console.log(data);
+                console.log("status: ");
+                console.log(status);
+            });
+
+
+
+        };
 });

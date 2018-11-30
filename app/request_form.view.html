@@ -254,7 +254,7 @@
                 <div class="col-sm-12 controls">
                      <button type="button"
                              data-ng-disabled="request_params.email === null || request_params.first_name === null || request_params.last_name === null"
-                             class="btn btn-success pull-right">
+                             class="btn btn-success pull-right" ng-click="main.send_mail(request_params)">
                          <span class="glyphicon glyphicon-share"></span>&nbsp; Submit Request
                      </button>
                 </div>

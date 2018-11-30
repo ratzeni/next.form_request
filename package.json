@@ -1,0 +1,24 @@
+{
+   "name": "myApp",
+   "version": "0.0.1",
+   "description": "RequestForm",
+   "dependencies": {
+        "express": "latest",
+        "nodemailer": "^4.7.0"
+    },
+   "engine": "node >=0.6.x",
+   "scripts": {
+         "start": "node server.js"
+    },
+   "main": "server.js",
+   "repository": {
+        "type": "git",
+        "url": ""
+    },
+   "author": "myApp",
+   "license": "myApp",
+   "bugs": {
+        "url": ""
+    },
+   "homepage": "/"
+}
